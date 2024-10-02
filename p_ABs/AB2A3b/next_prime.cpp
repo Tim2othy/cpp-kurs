@@ -2,7 +2,7 @@
 
 int main()
 {
-    for (int input = 20000; true; input++)
+    for (int input = 40000; true; input++)
     {
         int is_prime = 10;
 
