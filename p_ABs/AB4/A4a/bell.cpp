@@ -2,44 +2,27 @@
 
 long int fak(int n)
 {
-
-    int ergebnis = 1; /* speichert die Fakultaet */
-
-    while (n > 0) /* verkleinere n, bis es */
+    int erg = 1;
+    while (n > 0)
     {
-        ergebnis *= n; /* null ist und multi-*/
-        n--; /* pliziere mit ergebnis */
+        erg *= n;
+        n--;
     }
-    return ergebnis;
+    return erg;
 }
 
-
-long int binom(int n, int k)
-{
-    int ergebnis = fak(n) / (fak(k) * fak(n - k));
-
-    return ergebnis;
-}
-
+int binom(int n, int k) { return fak(n) / (fak(k) * fak(n - k)); }
 
 int bell(int number)
 {
-    if (number == 0)
-    {
+    if (number == 0) {
         return 1;
     }
-
-    long int ergebnis = 0;
-
-    for (size_t i = 0; i <= number - 1; i++)
-    {
-        ergebnis = ergebnis + binom(number - 1, i) * bell(i);
-        std::cout << "temp result = " << ergebnis << std::endl;
-        std::cout << "with i = " << i << std::endl;
-
-
+    int erg = 0;
+    for (size_t i = 0; i <= number - 1; i++) {
+        erg += binom(number - 1, i) * bell(i);
     }
-    return ergebnis;
+    return erg;
 }
 
 int main()
@@ -47,8 +30,5 @@ int main()
     double n;
     std::cout << "Give me one n, Ill calculate B(n) " << std::endl;
     std::cin >> n;
-    std::cout << std::endl;
-
-    int output = bell(n);
-    std::cout << "it is " << output;
+    std::cout << "it is " << bell(n);
 }
