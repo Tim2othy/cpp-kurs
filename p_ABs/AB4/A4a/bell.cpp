@@ -1,30 +1,54 @@
 # include <iostream>
 
-int folge(int n)
+long int fak(int n)
 {
-    int a = 1;
-    int b = 1;
-    int c = 1;
-    int d;
 
-    for (size_t i = 0; i < n; i++)
+    int ergebnis = 1; /* speichert die Fakultaet */
+
+    while (n > 0) /* verkleinere n, bis es */
     {
-        d = 2 * c + b + 2 * a;
-
-        a = b;
-        b = c;
-        c = d;
+        ergebnis *= n; /* null ist und multi-*/
+        n--; /* pliziere mit ergebnis */
     }
-    std::cout << "The result is " << b << std::endl;
-    return 0;
+    return ergebnis;
+}
+
+
+long int binom(int n, int k)
+{
+    int ergebnis = fak(n) / (fak(k) * fak(n - k));
+
+    return ergebnis;
+}
+
+
+int bell(int number)
+{
+    if (number == 0)
+    {
+        return 1;
+    }
+
+    long int ergebnis = 0;
+
+    for (size_t i = 0; i <= number - 1; i++)
+    {
+        ergebnis = ergebnis + binom(number - 1, i) * bell(i);
+        std::cout << "temp result = " << ergebnis << std::endl;
+        std::cout << "with i = " << i << std::endl;
+
+
+    }
+    return ergebnis;
 }
 
 int main()
 {
     double n;
-    std::cout << "Give me one n " << std::endl;
+    std::cout << "Give me one n, Ill calculate B(n) " << std::endl;
     std::cin >> n;
     std::cout << std::endl;
 
-    folge(n);
+    int output = bell(n);
+    std::cout << "it is " << output;
 }
