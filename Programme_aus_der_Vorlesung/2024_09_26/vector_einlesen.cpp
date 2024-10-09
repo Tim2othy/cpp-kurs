@@ -23,7 +23,7 @@ std::vector<int> schreibe_i_an_stelle_i(std::vector<int> vector)
 }*/
 
 
-int main ()
+int main()
 {
     std::vector<int> vector;
     int zuletzt_eingelesen = 0;
@@ -45,5 +45,3 @@ int main ()
     std::cout << std::endl;
     return 0;
 }
-    
-
