@@ -1,9 +1,6 @@
 # include <iostream>
 # include <vector>
 
-
-
-
 int main()
 {
     int n;
@@ -11,35 +8,16 @@ int main()
     std::cin >> n;
     std::vector<int> teiler;
 
-    std::cout << n << std::endl;
-
-    if ((n % 2) == 1)
+    for (int i = 1; i <= n; i++)
     {
-        std::cout << "works" << std::endl;
-    }
-
-    int dex = 0;
-
-    for (int i = 0; i * i <= n; i++)
-    {
-
-        std::cout << "test" << std::endl;
-
-        int x = dex;
-
-        if ((n % 8) == 0)
+        if ((n % i) == 0)
         {
-            std::cout << "test 2" << std::endl;
-
+            teiler.push_back(i);
         }
-        dex++;
-
     }
-
 
     for (int i = 0; i < teiler.size(); ++i)
     {
         std::cout << teiler[i] << ", ";
     }
-    return 0;
 }
